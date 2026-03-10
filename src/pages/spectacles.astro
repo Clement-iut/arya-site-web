@@ -339,16 +339,41 @@ const posingEvents = [
     }
 
     @media (max-width: 768px) {
-        .image-col, .image-col img {
-            flex: 1; /* Reset flex basis */
-            width: 100%; /* Full width on mobile */
-            height: auto; /* Maintain aspect ratio or set specific mobile height if needed */
-            max-width: 544px; /* But don't exceed original size */
+        .spectacles-list {
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .spectacle-row, .spectacle-row.reversed {
+            flex-direction: column-reverse; /* Image on top */
+            gap: 2rem;
+        }
+
+        .content-col {
+            text-align: center; /* Center all text and buttons */
+        }
+
+        .spectacle-title {
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+
+        .image-col {
+            flex: unset;
+            width: 100%;
+        }
+
+        .image-col img {
+            flex: unset;
+            width: 100%;
+            height: auto;
+            max-width: none;
         }
 
         .page-title {
-            font-size: 3rem;
-            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
         }
 
         .posing-item {
