@@ -6,6 +6,9 @@
 
         <div class="contact-form-container">
             <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                <!-- IMPORTANT: Champ caché obligatoire pour que Netlify détecte le formulaire avec Astro -->
+                <input type="hidden" name="form-name" value="contact" />
+                
                 <div class="form-group full-width">
                     <input type="text" id="name" name="name" placeholder="Nom" required>
                 </div>
