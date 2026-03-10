@@ -1,0 +1,214 @@
+---
+const cards = [
+    {
+        title: "Nos artistes",
+        description: "L'Arya compagnie est composé de plusieurs artistes que ce soit des danseurs, de(s) chanteur(s) et même de(s) cascadeur(s)",
+        image: "/images/card-artistes.jpg",
+        link: "/artistes",
+        linkText: "Artistes →",
+        hoverColor: "#5CE0D8",
+        hoverBg: "rgba(92, 224, 216, 0.08)",
+        hoverBorder: "rgba(92, 224, 216, 0.4)",
+    },
+    {
+        title: "Nos spectacles",
+        description: "Nous avons eu la chance de réaliser plusieurs spectacle ! Ici, vous pouvez avoir un aperçu de chacuns d'entre eux !",
+        image: "/images/card-spectacles.jpg",
+        link: "/spectacles",
+        linkText: "Spectacles →",
+        hoverColor: "#B388EB",
+        hoverBg: "rgba(179, 136, 235, 0.08)",
+        hoverBorder: "rgba(179, 136, 235, 0.4)",
+    },
+    {
+        title: "Nos événements",
+        description: "Nous proposons de nombreuses prestations pour les particuliers. N’hésitez pas à nous contacter !",
+        image: "/images/card-evenements.jpg",
+        link: "/contact",
+        linkText: "Événements →",
+        hoverColor: "#5CE0D8",
+        hoverBg: "rgba(92, 224, 216, 0.08)",
+        hoverBorder: "rgba(92, 224, 216, 0.4)",
+    }
+];
+---
+
+<section class="cards-section">
+    <h2 class="section-title">À propos de nous !</h2>
+    
+    <div class="cards-grid">
+        {cards.map(card => (
+            <a href={card.link} class="card" style={`--hover-color: ${card.hoverColor}; --hover-bg: ${card.hoverBg}; --hover-border: ${card.hoverBorder};`}>
+                <div class="card-image-container">
+                    <img src={card.image} alt={card.title} class="card-image" />
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">{card.title}</h3>
+                    <p class="card-description">{card.description}</p>
+                    <span class="card-link">{card.linkText}</span>
+                </div>
+            </a>
+        ))}
+    </div>
+</section>
+
+<style>
+    .cards-section {
+        background-color: #000;
+        padding: 5rem 1rem;
+        text-align: center;
+    }
+
+    .section-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 3.5rem;
+    }
+
+    .cards-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .card {
+        display: block;
+        position: relative;
+        background-color: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        text-decoration: none;
+        transition: all 0.5s ease;
+        border: 2px solid transparent;
+        cursor: pointer;
+        text-align: left;
+        width: 365px;
+        height: 465px;
+        display: flex; /* Add flex display to card to control children */
+        flex-direction: column;
+        padding: 1.5px; /* Thin uniform padding */
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .card:hover {
+        background-color: var(--hover-bg);
+        border-color: var(--hover-border);
+        box-shadow: 0 0 30px var(--hover-bg);
+    }
+
+    .card-image-container {
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        border-radius: 10px 10px 0 0;
+        /* margin: 0 auto; Removed as padding handles centering/spacing */
+    }
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .card:hover .card-image {
+        transform: scale(1.05);
+    }
+
+    .card-content {
+        padding: 1.25rem;
+        display: flex; /* Use flex for content area */
+        flex-direction: column;
+        flex: 1; /* Grow to fill remaining space */
+    }
+
+    .card-title {
+        font-family: var(--font-family-heading);
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .card:hover .card-title {
+        color: white; /* Changed to white on hover as per design */
+    }
+
+    .card-description {
+        font-family: var(--font-family-sans);
+        font-size: 0.875rem;
+        color: #4b5563;
+        line-height: 1.625;
+        margin-bottom: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    .card:hover .card-description {
+        color: #e5e7eb; /* Light gray on hover */
+    }
+
+    .card-link {
+        font-family: var(--font-family-sans);
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #111827;
+        text-decoration-line: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+        transition: color 0.3s ease;
+        margin-top: auto;
+    }
+
+    .card:hover .card-link {
+        color: white;
+    }
+    
+    /* Apply the specific hover color when the link (or card) is hovered. 
+       The React example changes color based on "isLinkHovered", 
+       but standard CSS can't detect hover on a specific child affecting just that child's style 
+       dependent on a parent variable easily without JS if we want the "card hover" state to be dominant.
+       
+       However, we can approximate:
+       When the CARD is hovered, the text becomes white (base hover state).
+       We can add a specific rule:
+    */
+    .card-link {
+        color: #111827;
+    }
+    
+    /* 
+       To mimic "isLinkHovered ? card.hoverColor : ''" inside the card hover state:
+       We'll make the link text use the hover-color variable if we can.
+       Actually, the cleanest way in pure CSS is just to use the card hover state 
+       to set it to white (as per the React `group-hover:text-white`), 
+       
+       Wait, the React code says:
+       style={{ color: isLinkHovered ? card.hoverColor : "" }}
+       And also `group-hover:text-white` class on the span.
+       
+       So:
+       - Default: Gray 900
+       - Card Hover: White
+       - Link Hover: card.hoverColor (overrides white)
+    */
+
+    .card:hover .card-link {
+        color: white;
+    }
+
+    .card:hover .card-link:hover {
+        color: var(--hover-color);
+    }
+
+    @media (max-width: 768px) {
+        .cards-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

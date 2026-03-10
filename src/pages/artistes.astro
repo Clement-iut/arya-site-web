@@ -1,0 +1,180 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+const artists = [
+  {
+    name: "Artiste 1",
+    role: "Danseuse professionnel depuis 2020",
+    image: "/images/artiste1.jpg"
+  },
+  {
+    name: "Artiste 2",
+    role: "Cascadeur & Comédien depuis 2024",
+    image: "/images/artiste2.jpg"
+  },
+  {
+    name: "Artiste 3",
+    role: "Chanteur collaborateur depuis 2024",
+    image: "/images/artiste3.jpg"
+  },
+  {
+    name: "Artiste 4",
+    role: "Danseuse semi-professionnel depuis 2020",
+    image: "/images/artiste4.jpg"
+  }
+];
+---
+
+<Layout title="Nos Artistes - Arya">
+	<Navigation />
+	<main>
+        <section class="artists-section">
+            <h1 class="page-title">Nos artistes</h1>
+            
+            <div class="artists-grid">
+                {artists.map(artist => (
+                    <div class="artist-card">
+                        <div class="image-container">
+                            <img src={artist.image} alt={artist.name} />
+                        </div>
+                        <div class="artist-info">
+                            <h2 class="artist-name">{artist.name}</h2>
+                            <p class="artist-role">{artist.role}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div class="cta-container">
+                <p class="cta-text">Si vous souhaitez en savoir plus sur la compagnie Arya</p>
+                <a href="/a-propos" class="cta-link">À propos &rarr;</a>
+            </div>
+        </section>
+	</main>
+    <Footer />
+</Layout>
+
+<style>
+    main {
+        background-color: #000;
+        min-height: 100vh;
+        padding-top: 80px; /* Space for fixed navbar */
+    }
+
+    .artists-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 1rem;
+        text-align: center;
+    }
+
+    .page-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 5rem;
+    }
+
+    .artists-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem 2rem;
+        margin-bottom: 8rem;
+    }
+
+    .artist-card {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .image-container {
+        width: 100%;
+        aspect-ratio: 4/3; /* Adjust based on image ratio in design */
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .image-container:hover img {
+        transform: scale(1.03);
+    }
+
+    .artist-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 0 0.5rem;
+    }
+
+    .artist-name {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 0;
+    }
+
+    .artist-role {
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        color: #888;
+        margin: 0;
+        text-align: right;
+    }
+
+    .cta-container {
+        margin-top: 4rem;
+    }
+
+    .cta-text {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.5rem;
+        color: #fff;
+        margin-bottom: 1rem;
+    }
+
+    .cta-link {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.5rem;
+        color: #fff;
+        text-decoration: underline;
+        text-underline-offset: 8px;
+        transition: color 0.3s;
+    }
+
+    .cta-link:hover {
+        color: #b19cd9; /* Minimal hover effect */
+    }
+
+    @media (max-width: 768px) {
+        .artists-grid {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+        }
+
+        .artist-info {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .artist-role {
+            text-align: left;
+        }
+    }
+</style>

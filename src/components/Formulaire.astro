@@ -1,0 +1,175 @@
+---
+---
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title">Pour toutes questions<br>Contactez-nous !</h2>
+
+        <div class="contact-form-container">
+            <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                <div class="form-group full-width">
+                    <input type="text" id="name" name="name" placeholder="Nom" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="L'email doit contenir un @ et un nom de domaine valide (ex: moi@exemple.com)">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Numéro" pattern="0[1-9][0-9]{8}" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Veuillez entrer 10 chiffres (ex: 0612345678)">
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <input type="text" id="address" name="address" placeholder="Adresse">
+                </div>
+
+                <div class="form-group full-width">
+                    <textarea id="request" name="request" rows="4" placeholder="Votre demande" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Envoyer</button>
+            </form>
+        </div>
+
+        <p class="outro-text">
+            Arya a encore beaucoup de choses à dire et surtout à vous montrer...
+        </p>
+    </div>
+</section>
+
+<style>
+    .contact-section {
+        background-color: #000;
+        color: #fff;
+        padding: 5rem 1rem;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 2.5rem; /* Copied from previous logic, or maybe 3rem if matching About? Let's check CardSection */
+        font-weight: 700;
+        margin-bottom: 3rem;
+        line-height: 1.2;
+    }
+    
+    /* Checking CardSection title size... it was 3rem. Let's stick to 2.5rem or upgrade? 
+       User didn't explicitly ask for title change here, just form. 
+       Wait, step 81 changed CardSection title to 3rem Inter. 
+       Let's use 3rem Inter for consistency if possible, or just keep what's requested (form).
+       I'll use 3rem Inter for consistency with other section titles.
+    */
+    .section-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 4rem;
+        line-height: 1.2;
+    }
+
+    .contact-form-container {
+        width: 100%;
+        max-width: 900px;
+        margin-bottom: 3rem;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem 4rem;
+    }
+
+    .form-group {
+        flex: 1;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 1.25rem;
+        /* Default border state */
+        border: 2px solid #333;
+        background-color: #111;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.3s, background-color 0.3s;
+        
+        /* Prepare for gradient border */
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+    }
+
+    input:focus, textarea:focus {
+        background-color: #000;
+        border-color: transparent;
+        background-image: linear-gradient(#000, #000), linear-gradient(to right, #5CE0D8, #B388EB);
+        box-shadow: 0 0 15px rgba(179, 136, 235, 0.1);
+    }
+
+
+    
+    ::placeholder {
+        color: #888;
+    }
+
+    .submit-btn {
+        background-color: #fff;
+        color: #000;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: transform 0.2s, background-color 0.2s;
+        align-self: center; /* Center the button */
+        min-width: 200px;
+    }
+
+    .submit-btn:hover {
+        background-image: linear-gradient(to right, #5CE0D8, #B388EB);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(179, 136, 235, 0.4);
+    }
+
+    .outro-text {
+        font-family: 'Inter', sans-serif;
+        color: #888;
+        font-size: 1.1rem;
+        font-style: italic;
+        margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+        .form-row {
+            flex-direction: column;
+            gap: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+</style>

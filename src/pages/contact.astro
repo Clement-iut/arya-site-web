@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import Formulaire from '../components/Formulaire.astro';
+---
+
+<Layout title="Contact - Arya">
+	<Navigation />
+	<main>
+        <section class="intro-section">
+            <h1 class="page-title">Contact</h1>
+            <p class="subtitle">Pour toute demande, ça se passe ici !</p>
+        </section>
+
+        <section class="hero-image-section">
+            <div class="image-container">
+                <img src="/images/Burlesque/IMG_7839.jpeg" alt="Troupe Arya" />
+            </div>
+        </section>
+
+        <section class="prestations-section">
+            <h2 class="section-title">Les prestations</h2>
+            
+            <div class="prestation-block">
+                <h3 class="prestation-subtitle">Événementiel</h3>
+                <p>
+                    Nous accompagnons vos moments de vie et vos projets professionnels pour les rendre inoubliables :
+                </p>
+                <ul>
+                    <li>Privé : Anniversaires thématiques et Mariages féeriques.</li>
+                    <li>Professionnel : Soirées d'entreprise et lancements.</li>
+                </ul>
+            </div>
+
+            <div class="prestation-block">
+                <h3 class="prestation-subtitle">Spectacles & Animations à Thèmes</h3>
+                <p>
+                    Plongez dans nos univers visuels lors de vos festivités :
+                </p>
+                <ul>
+                    <li>Parades : Des cortèges rythmés pour célébrer Noël ou frissonner à Halloween.</li>
+                    <li>Déambulations : Nos artistes viennent à la rencontre du public pour une immersion totale (Noël, Halloween).</li>
+                    <li>Rencontres Magiques : Immortalisez l'instant avec nos personnages iconiques lors de séances photos.
+                        <ul>
+                            <li>Le Grinch, Mr Jack, La Reine des Neiges, nos Princesses et nos Costumes de Noël.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="contact-form-section">
+            <h2 class="section-title">Contact et Devis</h2>
+            <p class="contact-intro">
+                Pour toute demande d'information ou pour obtenir une tarification personnalisée, nous vous invitons à solliciter un devis gratuit.
+            </p>
+            <p class="contact-intro">
+                Veuillez nous contacter via le formulaire en précisant les détails de votre projet :
+            </p>
+            <ul class="contact-list">
+                <li>Le type de prestation souhaitée.</li>
+                <li>La date et le lieu de l'événement.</li>
+                <li>Toute information complémentaire utile à l'étude de votre demande.</li>
+            </ul>
+
+            <div class="form-wrapper">
+                <Formulaire />
+            </div>
+        </section>
+	</main>
+    <Footer />
+</Layout>
+
+<style>
+    main {
+        background-color: #000;
+        min-height: 100vh;
+        padding-top: 100px;
+        padding-bottom: 4rem;
+        color: #fff;
+    }
+
+    .intro-section {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .page-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.2rem;
+        color: #888;
+    }
+
+    .hero-image-section {
+        max-width: 1000px;
+        margin: 0 auto 6rem;
+        padding: 0 1rem;
+    }
+
+    .image-container img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(179, 136, 235, 0.2); /* Subtle purple glow */
+    }
+
+    /* Prestations Section */
+    .prestations-section {
+        max-width: 800px;
+        margin: 0 auto 6rem;
+        padding: 0 1rem;
+    }
+
+    .section-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+    }
+
+    .prestation-block {
+        margin-bottom: 3rem;
+    }
+
+    .prestation-subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #fff;
+    }
+
+    p, li {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.1rem;
+        color: #ccc;
+        line-height: 1.6;
+    }
+
+    ul {
+        margin-top: 0.5rem;
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Contact Form Section */
+    .contact-form-section {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .contact-intro {
+        margin-bottom: 1rem;
+    }
+
+    .contact-list {
+        margin-bottom: 3rem;
+    }
+
+    .form-wrapper {
+        margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+</style>
