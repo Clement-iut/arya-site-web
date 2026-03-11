@@ -1,0 +1,133 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Mentions Légales - Arya">
+	<Navigation />
+	<main>
+        <section class="intro-section">
+            <h1 class="page-title">Mentions Légales</h1>
+            <p class="subtitle">Informations juridiques de la compagnie Arya</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Éditeur du site</h2>
+            <p>
+                <strong>Compagnie Arya</strong><br>
+                [Adresse de l'association / du siège social]<br>
+                [Code Postal] [Ville]<br>
+                Email : <a href="mailto:contact@compagniearya.fr">contact@compagniearya.fr</a><br> <!-- Remplace par l'email correct -->
+                Téléphone : [Numéro de téléphone, facultatif]
+            </p>
+
+            <h2>Directeur de la publication</h2>
+            <p>
+                [Nom du Président(e) ou de la personne responsable de l'association]
+            </p>
+
+            <h2>Hébergement</h2>
+            <p>
+                Ce site est hébergé par :<br>
+                <strong>[Nom de l'hébergeur, ex: Netlify]</strong><br>
+                [Adresse de l'hébergeur]<br>
+                [Site web de l'hébergeur]
+            </p>
+
+            <h2>Propriété intellectuelle</h2>
+            <p>
+                L'ensemble du contenu de ce site (textes, images, vidéos, logos, etc.) est la propriété exclusive de la compagnie Arya ou de leurs propriétaires respectifs. Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l'accord exprès par écrit de la compagnie Arya.
+            </p>
+
+            <h2>Données personnelles</h2>
+            <p>
+                Les informations recueillies via le formulaire de contact sont destinées uniquement à la compagnie Arya dans le but de répondre à vos demandes. Elles ne sont en aucun cas cédées ou vendues à des tiers.<br>
+                Conformément à la loi "Informatique et Libertés", vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Vous pouvez exercer ce droit en nous contactant à l'adresse e-mail mentionnée ci-dessus.
+            </p>
+            
+            <h2>Crédits</h2>
+            <p>
+                Création et développement du site web : Clément Magnier.
+            </p>
+        </section>
+	</main>
+    <Footer />
+</Layout>
+
+<style>
+    main {
+        background-color: #000;
+        min-height: 100vh;
+        padding-top: 100px;
+        padding-bottom: 4rem;
+        color: #fff;
+    }
+
+    .intro-section {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .page-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.2rem;
+        color: #888;
+    }
+
+    .content-section {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #B388EB; /* Couleur d'accent (violet) */
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.1rem;
+        color: #ccc;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    a {
+        color: #5CE0D8; /* Couleur d'accent (cyan) */
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    strong {
+        color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+</style>

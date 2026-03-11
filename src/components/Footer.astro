@@ -1,5 +1,8 @@
 ---
 ---
+<div class="credit-banner">
+    <span class="credit">Réalisé par Clément Magnier</span>
+</div>
 <footer class="footer">
     <div class="footer-content">
         <div class="left">
@@ -10,6 +13,7 @@
             <nav class="footer-nav">
                 <a href="/a-propos">A propos</a>
                 <a href="/contact">Contact</a>
+                <a href="/mentions-legales">Mentions légales</a>
             </nav>
         </div>
 
@@ -35,6 +39,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                 </a>
             </div>
+            <span class="copyright">&copy; 2026 Arya Compagnie</span>
         </div>
     </div>
 </footer>
@@ -59,6 +64,13 @@
         display: flex;
         align-items: center;
         gap: 2rem;
+    }
+
+    .right {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 1.5rem;
     }
 
     .footer-logo-link {
@@ -93,6 +105,25 @@
 
     .footer-nav a:hover {
         color: #fff;
+    }
+
+    .copyright {
+        color: #888;
+        font-family: var(--font-family-sans);
+        font-size: 0.9rem;
+    }
+
+    .credit-banner {
+        text-align: center;
+        padding: 1rem 0;
+        background-color: #000; /* Assuming the rest of the page background is black or very dark */
+        width: 100%;
+    }
+
+    .credit {
+        color: #888;
+        font-family: var(--font-family-sans);
+        font-size: 0.9rem;
     }
 
     .social-icons {
@@ -138,6 +169,13 @@
         .left {
             flex-direction: column;
             gap: 1.5rem;
+            order: 1;
+        }
+
+        .right {
+            order: 2;
+            flex-direction: column-reverse;
+            gap: 1rem;
         }
     }
 </style>
